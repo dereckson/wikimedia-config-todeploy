@@ -1,0 +1,36 @@
+Config to deploy script
+=======================
+
+(c) 2015 Sébastien Santoro aka Dereckson
+Released under BSD license.
+
+This script reads the Wikimedia-Site-Requests project board on Phabricator
+and queries Gerrit to get information about open changes.
+
+It then prints the lines of changes to deploy, ready to add to our wiki page
+https://wikitech.wikimedia.org/wiki/Deployments.
+
+To run it, `./todeploy` or `php todeploy.php`.
+
+To customize it, start by the $config array around line 10 of this file.
+
+______________________________________________________________________________
+
+[FAQ]
+
+Q. How to use it for another project?
+
+A. Create a column 'To deploy', get the board number and edit config array.
+
+* * *
+
+Q. How to generate the list from another column than 'To deploy'?
+
+A. Add to $config 'PhabricatorBoardColumn' => 'Your column name'
+
+* * *
+
+Q. Why do you scrape Phabricator instead to query conduit?
+
+A. Currently, there is no straightforward way to get this information through
+conduit. For more information, see https://secure.phabricator.com/T5523.
