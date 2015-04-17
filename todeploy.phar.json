@@ -1,0 +1,5 @@
+{
+    "source": "src",
+    "target": "todeploy.phar",
+    "entryPoint": "todeploy.php"
+}
