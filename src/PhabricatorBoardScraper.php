@@ -21,7 +21,7 @@ class PhabricatorBoardScraper {
         //Gets the HTML content of the specified column
         $url = $this->getURL();
         $data = file_get_contents($url);
-        $startString = '<h3 class="phui-action-header-title">' . $this->columnName . '</h3>';
+        $startString = '<div class="phui-header-col2"><span class="phui-header-header">' . $this->columnName . '</span></div>';
         $stopString = '</div></div></div></div></div></div></li></ul>';
         $content = TextUtils::grab($data, $startString, $stopString);
 
