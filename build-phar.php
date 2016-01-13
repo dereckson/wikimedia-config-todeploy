@@ -71,7 +71,8 @@ class PharBuilder {
     public function createStub () {
         $stubFile = $this->getStubFile();
         $stub = $this->phar->createDefaultStub($stubFile);
-        $this->phar->setStub($stub);
+        $shebang = "#!/usr/bin/env php\n";
+        $this->phar->setStub($shebang . $stub);
     }
 
     public function getStubFile () {
@@ -96,12 +97,28 @@ class PharBuilder {
             $path = $source . DIRECTORY_SEPARATOR . $file;
             $type = filetype($path);
             if ($type == "file") {
-                $this->phar[$file] = file_get_contents($path);
+                $code = static::cleanCode(file_get_contents($path));
+                $this->phar[$file] = $code;
             }
             //TODO: what behavior for symlinks ('link') and subdirs ('dir')?
         }
         closedir($dh);
     }
+
+    /**
+     * Cleans code
+     *
+     * @param string $code source code to clean
+     * @return string cleaned up code
+     */
+     public static function cleanCode ($code) {
+         if (substr($code, 0, 2) == '#!') {
+             // Ignores shebang line
+             $pos = strpos($code, "\n");
+             return substr($code, 19);
+         }
+         return $code;
+     }
 
     /**
      * Gets settings from a JSON file
