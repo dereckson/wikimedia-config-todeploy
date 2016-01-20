@@ -1,7 +1,7 @@
 Config to deploy script
 =======================
 
-(c) 2015 Sébastien Santoro aka Dereckson
+(c) 2015, 2016,  Sébastien Santoro aka Dereckson
 Released under BSD license.
 
 This script reads the Wikimedia-Site-Requests project board on Phabricator
@@ -34,3 +34,18 @@ Q. Why do you scrape Phabricator instead to query conduit?
 
 A. Currently, there is no straightforward way to get this information through
 conduit. For more information, see https://secure.phabricator.com/T5523.
+
+* * *
+
+Q. Can I use it for other software?
+
+* If you use Bugzilla or other bug tracker with Gerrit, get an array with the
+  bug number, and pass it to the ChangesToDeploy constructor.
+
+* If you use purely Phabricator, keep the PhabricatorBoardScraper part and then
+  check for every task if an accepted differential is attached with a call to
+  maniphest.gettasktransactions Phabricator API.
+  
+* If you use Phabricator, then another product, the PhabricatorBoardScraper 
+  GetTasksId method will give you an array of the tasks to deploy. You need
+  a reference into your product to these tasks. Then query your application.
