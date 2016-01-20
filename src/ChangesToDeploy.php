@@ -35,7 +35,7 @@ class ChangesToDeploy {
                     'Bugzilla'
                 );
                 if ($task !== null) {
-                    $line .= " (T$task)";
+                    $line .= " ({{phabT|$task}})";
                 }
             }
             $lines[] = $line;
