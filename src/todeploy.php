@@ -35,7 +35,7 @@ $changes = (new ChangesToDeploy($gerrit, $config['GerritProject']))
     ->fetch()
     ->filterByTasksId($boardTasks)
     ->get();
-    
+
 if (count($changes)) {
     echo ChangesToDeploy::format($changes, $config['Tag']);
     echo "\n";
