@@ -1,6 +1,8 @@
 #!/usr/bin/env php
 <?php
 
+require 'vendor/autoload.php';
+
 require 'ChangesToDeploy.php';
 require 'Gerrit.php';
 require 'PhabricatorBoardScraper.php';

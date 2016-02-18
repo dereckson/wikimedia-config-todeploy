@@ -1,5 +1,6 @@
 <?php
 
+require 'HtmlPage.php';
 require 'TextUtils.php';
 
 class PhabricatorBoardScraper {
@@ -20,7 +21,8 @@ class PhabricatorBoardScraper {
     public function getTasksId () {
         //Gets the HTML content of the specified column
         $url = $this->getURL();
-        $data = file_get_contents($url);
+        $data = HtmlPage::getRenderedContents($url);
+
         $startString = '<div class="phui-header-col2"><span class="phui-header-header">' . $this->columnName . '</span></div>';
         $stopString = '</div></div></div></div></div></div></li></ul>';
         $content = TextUtils::grab($data, $startString, $stopString);
