@@ -10,7 +10,7 @@ and queries Gerrit to get information about open changes.
 It then prints the lines of changes to deploy, ready to add to our wiki page
 https://wikitech.wikimedia.org/wiki/Deployments.
 
-To run it, `./todeploy` or `php todeploy.php`.
+To run it, `bin/todeploy` or `php src/todeploy.php`.
 
 To customize it, start by the $config array around line 10 of this file.
 
@@ -45,7 +45,7 @@ Q. Can I use it for other software?
 * If you use purely Phabricator, keep the PhabricatorBoardScraper part and then
   check for every task if an accepted differential is attached with a call to
   maniphest.gettasktransactions Phabricator API.
-  
-* If you use Phabricator, then another product, the PhabricatorBoardScraper 
+
+* If you use Phabricator, then another product, the PhabricatorBoardScraper
   GetTasksId method will give you an array of the tasks to deploy. You need
   a reference into your product to these tasks. Then query your application.
