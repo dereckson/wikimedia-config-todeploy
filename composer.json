@@ -3,7 +3,6 @@
     "description": "Gets the list to the configuration change to deploy from Phabricator and Gerrit and prepares an output for Wikitech.",
     "license": "BSD-2-Clause",
     "require": {
-        "jakoch/phantomjs-installer": "~2.1",
         "jonnyw/php-phantomjs": "4.*"
     },
     "require-dev": {
@@ -14,13 +13,5 @@
             "Wikimedia\\Deployments\\ToDeploy\\": "src/",
             "Wikimedia\\Deployments\\ToDeploy\\Tests\\": "tests/"
         }
-    },
-    "scripts": {
-        "post-install-cmd": [
-            "PhantomInstaller\\Installer::installPhantomJS"
-        ],
-        "post-update-cmd": [
-            "PhantomInstaller\\Installer::installPhantomJS"
-        ]
     }
 }

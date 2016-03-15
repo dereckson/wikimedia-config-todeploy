@@ -3,7 +3,7 @@
 namespace Wikimedia\Deployments\ToDeploy;
 
 use JonnyW\PhantomJs\Client;
-use PhantomInstaller\PhantomBinary;
+use Wikimedia\Deployments\ToDeploy\Utils\OSUtils;
 
 class HtmlPage {
 
@@ -14,7 +14,8 @@ class HtmlPage {
      */
     static private function getPhantomJsClientInstance () {
         $client = Client::getInstance();
-        $client->getEngine()->setPath(PhantomBinary::BIN);
+        $command = OSUtils::getCommandRealPath("phantomjs");
+        $client->getEngine()->setPath($command);
         return $client;
     }
 
