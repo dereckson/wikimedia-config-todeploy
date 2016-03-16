@@ -2,6 +2,9 @@
 
 namespace Wikimedia\Deployments\ToDeploy;
 
+use Wikimedia\Deployments\ToDeploy\Gerrit\Gerrit;
+use Wikimedia\Deployments\ToDeploy\Phabricator\PhabricatorBoardScraper;
+
 class Task {
 
     /**

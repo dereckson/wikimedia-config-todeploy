@@ -1,6 +1,6 @@
 <?php
 
-namespace Wikimedia\Deployments\ToDeploy;
+namespace Wikimedia\Deployments\ToDeploy\Gerrit;
 
 class Gerrit {
     const DEFAULT_PORT = 29418;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Wikimedia\Deployments\ToDeploy;
+namespace Wikimedia\Deployments\ToDeploy\Gerrit;
 
 class GerritQueryResult {
     private $changes;

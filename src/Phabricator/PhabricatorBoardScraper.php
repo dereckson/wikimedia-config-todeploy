@@ -1,6 +1,9 @@
 <?php
 
-namespace Wikimedia\Deployments\ToDeploy;
+namespace Wikimedia\Deployments\ToDeploy\Phabricator;
+
+use Wikimedia\Deployments\ToDeploy\Utils\TextUtils;
+use Wikimedia\Deployments\ToDeploy\HtmlPage;
 
 class PhabricatorBoardScraper {
     public $url;

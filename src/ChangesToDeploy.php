@@ -2,6 +2,9 @@
 
 namespace Wikimedia\Deployments\ToDeploy;
 
+use Wikimedia\Deployments\ToDeploy\Gerrit\Gerrit;
+use Wikimedia\Deployments\ToDeploy\Gerrit\GerritQueryResult;
+
 class ChangesToDeploy {
     private $gerrit;
     private $project;
