@@ -1,7 +1,6 @@
 <?php
 
-require 'HtmlPage.php';
-require 'TextUtils.php';
+namespace Wikimedia\Deployments\ToDeploy;
 
 class PhabricatorBoardScraper {
     public $url;

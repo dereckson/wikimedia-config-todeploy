@@ -3,10 +3,6 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-require 'ChangesToDeploy.php';
-require 'Gerrit.php';
-require 'PhabricatorBoardScraper.php';
-
 // Configuration
 
 $config = [
@@ -19,26 +15,6 @@ $config = [
     'Tag' => 'config'
 ];
 
-// Scrapes Phabricator project board to gets the tasks to deploy
+// Run tasks
 
-$board = new PhabricatorBoardScraper(
-    $config['PhabricatorURL'],
-    $config['PhabricatorBoardId']
-);
-if (array_key_exists('PhabricatorBoardColumn', $config)) {
-    $board->columnName = $config['PhabricatorBoardColumn'];
-}
-$boardTasks = $board->GetTasksId();
-
-// Queries Gerrit
-
-$gerrit = new Gerrit($config['GerritServer']);
-$changes = (new ChangesToDeploy($gerrit, $config['GerritProject']))
-    ->fetch()
-    ->filterByTasksId($boardTasks)
-    ->get();
-
-if (count($changes)) {
-    echo ChangesToDeploy::format($changes, $config['Tag']);
-    echo "\n";
-}
+Wikimedia\Deployments\ToDeploy\Task::run($config);

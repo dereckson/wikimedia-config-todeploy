@@ -1,5 +1,7 @@
 <?php
 
+namespace Wikimedia\Deployments\ToDeploy;
+
 class TextUtils {
     /**
      * Finds a portion of text included between $before and $after strings

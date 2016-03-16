@@ -9,6 +9,12 @@
     "require-dev": {
         "psy/psysh": "@stable"
     },
+    "autoload": {
+        "psr-4": {
+            "Wikimedia\\Deployments\\ToDeploy\\": "src/",
+            "Wikimedia\\Deployments\\ToDeploy\\Tests\\": "tests/"
+        }
+    },
     "scripts": {
         "post-install-cmd": [
             "PhantomInstaller\\Installer::installPhantomJS"

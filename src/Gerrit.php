@@ -1,5 +1,7 @@
 <?php
 
+namespace Wikimedia\Deployments\ToDeploy;
+
 class Gerrit {
     const DEFAULT_PORT = 29418;
     const DEFAULT_HOST = 'localhost';

@@ -1,5 +1,7 @@
 <?php
 
+namespace Wikimedia\Deployments\ToDeploy;
+
 use JonnyW\PhantomJs\Client;
 use PhantomInstaller\PhantomBinary;
 
